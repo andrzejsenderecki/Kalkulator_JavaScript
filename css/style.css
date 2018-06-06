@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 336px;
+    margin: 0 auto;
+}
+
+.row {
+
+}
+
+.row-col-1-4 {
+    width: 25%;
+    float: left;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* ****************************************** */
+/* main-header */
+/* ****************************************** */
+
+.main-header {
+
+}
+
+.main-header h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    color: #6e6e6e;
+    font-weight: 700;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: right;
+}
+
+.main-header span {
+    color: #0000f1;
+}
+
+/* ****************************************** */
+/* main-display */
+/* ****************************************** */
+
+.main-display {
+    height: 100px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    margin-bottom: 4px;
+    padding-top: 8px;
+}
+
+.main-display-numbers {
+    font-size: 80px;
+    font-weight: 600;
+    float: right;
+    clear: both;
+    color: #6e6e6e;
+    padding-right: 20px;
+}
+
+/* ****************************************** */
+/* main-button */
+/* ****************************************** */
+
+.main-button {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    width: 80px;
+    height: 80px;
+    margin: 2px;
+    background-color: #0000f1;
+    border: 0;
+    border-radius: 3px;
+}
+
+.main-button:hover {
+    background-color: #0000a9;
+
+}
+
+.main-button-color-2 {
+    background-color: lightgray;
+    color: #6e6e6e;
+}
+
+.main-button-color-2:hover {
+    background-color: #999999;
+    color: #6e6e6e;
+}
