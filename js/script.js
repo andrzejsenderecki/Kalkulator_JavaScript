@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var countArr2 = [];
     var numberOne = 0;
     var numberTwo = 0;
-    var result = 0;
+    var result = null;
     var action = null;
     var countPlus = 0;
     var countMinus = 0;
@@ -39,9 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
         switch (action) {
             case '+': {
                 numberOne = parseFloat(countArr1);
-                console.log(numberOne);
                 numberTwo = parseFloat(countArr2);
-                console.log(numberOne + numberTwo);
                 result = numberOne + numberTwo;
                 display.innerText = result;
                 countArr1 = [result];
@@ -50,9 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             case '-': {
                 numberOne = parseFloat(countArr1);
-                console.log(numberOne);
                 numberTwo = parseFloat(countArr2);
-                console.log(numberOne - numberTwo);
                 result = numberOne - numberTwo;
                 display.innerText = result;
                 countArr1 = [result];
@@ -61,9 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             case '*': {
                 numberOne = parseFloat(countArr1);
-                console.log(numberOne);
                 numberTwo = parseFloat(countArr2);
-                console.log(numberOne * numberTwo);
                 result = numberOne * numberTwo;
                 display.innerText = result;
                 countArr1 = [result];
@@ -72,13 +66,28 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             case '/': {
                 numberOne = parseFloat(countArr1);
-                console.log(numberOne);
                 numberTwo = parseFloat(countArr2);
-                console.log(numberOne / numberTwo);
                 result = numberOne / numberTwo;
                 display.innerText = result;
                 countArr1 = [result];
                 countArr2 = [];
+                break;
+            }
+            case '+/-': {
+                var displayNow = display.innerText;
+                console.log(displayNow);
+                parseFloat(displayNow);
+                if (displayNow > 0) {
+                    displayNow = '-' + displayNow;
+                } else if (displayNow < 0) {
+                    displayNow = displayNow * -1;
+                }
+                display.innerText = displayNow;
+                if (result === null && countArr2[0] === undefined) {
+                    countArr1 = displayNow;
+                } else if (countArr1 !== undefined) {
+                    countArr2 = displayNow;
+                }
                 break;
             }
         }
@@ -217,24 +226,32 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     buttonMinus.addEventListener("click", function () {
-        countMinus = 1;
-        action = '-';
-        if (countPlus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            action = '+';
-            count();
-        } else if (countMultiply === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            action = '*';
-            count();
-        } else if (countDivide === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            action = '/';
-            count();
-        } else if (action === '-' && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            count();
+        minus();
+        function minus() {
+            countMinus = 1;
+            if (action === null && countArr1[0] === undefined) {
+                countArr1 = '-';
+                display.innerText = countArr1;
+                return;
+            }
+            action = '-';
+            if (countPlus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                action = '+';
+                count();
+            } else if (countMultiply === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                action = '*';
+                count();
+            } else if (countDivide === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                action = '/';
+                count();
+            } else if (action === '-' && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                count();
+            }
+            action = '-';
+            countPlus = 0;
+            countMultiply = 0;
+            countDivide = 0;
         }
-        action = '-';
-        countPlus = 0;
-        countMultiply = 0;
-        countDivide = 0;
     });
 
     buttonMultiply.addEventListener("click", function () {
@@ -317,4 +334,8 @@ document.addEventListener("DOMContentLoaded", function() {
         display.innerText = result;
     });
 
+    buttonMirror.addEventListener("click", function () {
+        action = '+/-';
+        count();
+    });
 });
