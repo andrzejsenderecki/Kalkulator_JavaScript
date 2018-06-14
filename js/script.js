@@ -63,51 +63,44 @@ document.addEventListener("DOMContentLoaded", function() {
         display.style.bottom = '7px';
     }
 
+    function countResultDate() {
+        display.innerText = result;
+        countArr1 = [result];
+        countArr2 = [];
+        displayTopArr = [result];
+        displayTop.innerText = displayTopArr;
+    }
+
+    function parseToFloat() {
+        numberOne = parseFloat(countArr1);
+        numberTwo = parseFloat(countArr2);
+    }
+
     function count() {
 
         switch (action) {
             case '+': {
-                numberOne = parseFloat(countArr1);
-                numberTwo = parseFloat(countArr2);
+                parseToFloat();
                 result = numberOne + numberTwo;
-                display.innerText = result;
-                countArr1 = [result];
-                countArr2 = [];
-                displayTopArr = [result];
-                displayTop.innerText = displayTopArr;
+                countResultDate();
                 break;
             }
             case '-': {
-                numberOne = parseFloat(countArr1);
-                numberTwo = parseFloat(countArr2);
+                parseToFloat();
                 result = numberOne - numberTwo;
-                display.innerText = result;
-                countArr1 = [result];
-                countArr2 = [];
-                displayTopArr = [result];
-                displayTop.innerText = displayTopArr;
+                countResultDate();
                 break;
             }
             case '*': {
-                numberOne = parseFloat(countArr1);
-                numberTwo = parseFloat(countArr2);
+                parseToFloat();
                 result = numberOne * numberTwo;
-                display.innerText = result;
-                countArr1 = [result];
-                countArr2 = [];
-                displayTopArr = [result];
-                displayTop.innerText = displayTopArr;
+                countResultDate();
                 break;
             }
             case '/': {
-                numberOne = parseFloat(countArr1);
-                numberTwo = parseFloat(countArr2);
+                parseToFloat();
                 result = numberOne / numberTwo;
-                display.innerText = result;
-                countArr1 = [result];
-                countArr2 = [];
-                displayTopArr = [result];
-                displayTop.innerText = displayTopArr;
+                countResultDate();
                 break;
             }
             case '+/-': {
@@ -130,55 +123,41 @@ document.addEventListener("DOMContentLoaded", function() {
                 displayNow = display.innerText;
                 parseFloat(displayNow);
                 result = displayNow * displayNow;
-                display.innerText = result;
-                countArr1 = [result];
-                countArr2 = [];
-                displayTopArr = [result];
-                displayTop.innerText = displayTopArr;
+                countResultDate();
                 break;
             }
             case 'percent': {
                 if (countPlus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
                     action = '+';
-                    numberOne = parseFloat(countArr1);
-                    numberTwo = parseFloat(countArr2);
+                    parseToFloat();
                     numberOnePercent = numberOne / 100;
                     result = numberOne + numberOnePercent * numberTwo;
-                    display.innerText = result;
-                    countArr1 = [result];
-                    countArr2 = [];
-                    displayTopArr = [result];
-                    displayTop.innerText = displayTopArr;
+                    countResultDate();
+                    disLength = result.toString();
+                    displayLength();
                 } else if (countMinus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
                     action = '-';
-                    numberOne = parseFloat(countArr1);
-                    numberTwo = parseFloat(countArr2);
+                    parseToFloat();
                     numberOnePercent = numberOne / 100;
                     result = numberOne - numberOnePercent * numberTwo;
-                    display.innerText = result;
-                    countArr1 = [result];
-                    countArr2 = [];
+                    countResultDate();
+                    disLength = result.toString();
+                    displayLength();
                 } else if (countMultiply === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
                     action = '*';
-                    numberOne = parseFloat(countArr1);
-                    numberTwo = parseFloat(countArr2);
+                    parseToFloat();
                     numberOnePercent = numberOne / 100;
                     result = numberOnePercent * numberTwo;
-                    display.innerText = result;
-                    countArr1 = [result];
-                    countArr2 = [];
-                    displayTopArr = [result];
-                    displayTop.innerText = displayTopArr;
+                    countResultDate();
+                    disLength = result.toString();
+                    displayLength();
                 } else if (countDivide === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
                     action = '/';
-                    numberOne = parseFloat(countArr1);
-                    numberTwo = parseFloat(countArr2);
+                    parseToFloat();
                     result = numberOne / numberTwo * numberOne;
-                    display.innerText = result;
-                    countArr1 = [result];
-                    countArr2 = [];
-                    displayTopArr = [result];
-                    displayTop.innerText = displayTopArr;
+                    countResultDate();
+                    disLength = result.toString();
+                    displayLength();
                 }
                 countPlus = 0;
                 countMinus = 0;
@@ -554,7 +533,6 @@ document.addEventListener("DOMContentLoaded", function() {
         displayTopArr = [result];
         disLength = result.toString();
         displayLength();
-        console.log(disLength.length);
         displayTop.innerText = displayTopArr;
     });
 
