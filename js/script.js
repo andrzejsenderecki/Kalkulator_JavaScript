@@ -36,6 +36,32 @@ document.addEventListener("DOMContentLoaded", function() {
     var numberOnePercent = 0;
     var displayNow = null;
     var displayTopArr = [];
+    var disLength = null;
+
+    function displayLength() {
+        if (disLength.length > 8 && disLength.length < 14) {
+            display.style.fontSize = '40px';
+            display.style.bottom = '18px';
+        } else if (disLength.length > 13 && disLength.length < 26) {
+            display.style.fontSize = '20px';
+            display.style.right = '23px';
+            display.style.bottom = '29px';
+        } else if (disLength.length > 25 && disLength.length < 34) {
+            display.style.fontSize = '15px';
+            display.style.bottom = '33px';
+        } else if (disLength.length > 35){
+            display.style.left = '20px';
+            display.style.overflow = 'hidden';
+        }
+    }
+
+    function displayLengthReset() {
+        disLength = null;
+        display.style.fontSize = '60px';
+        display.style.left = 'unset';
+        display.style.right = '20px';
+        display.style.bottom = '7px';
+    }
 
     function count() {
 
@@ -167,11 +193,18 @@ document.addEventListener("DOMContentLoaded", function() {
         if (action === null || countArr1[0] === undefined) {
             countArr1 = countArr1 + 1;
             display.innerText = countArr1;
+            disLength = countArr1;
+            displayLength();
             displayTopArr.push('1');
             displayTop.innerText = displayTopArr.join('');
         } else {
+            if (countArr2[0] === undefined) {
+                displayLengthReset();
+            }
             countArr2 = countArr2 + 1;
             display.innerText = countArr2;
+            disLength = countArr2;
+            displayLength();
             displayTopArr.push('1');
             displayTop.innerText = displayTopArr.join('');
         }
@@ -181,11 +214,18 @@ document.addEventListener("DOMContentLoaded", function() {
         if (action === null || countArr1[0] === undefined) {
             countArr1 = countArr1 + 2;
             display.innerText = countArr1;
+            disLength = countArr1;
+            displayLength();
             displayTopArr.push('2');
             displayTop.innerText = displayTopArr.join('');
         } else {
+            if (countArr2[0] === undefined) {
+                displayLengthReset();
+            }
             countArr2 = countArr2 + 2;
             display.innerText = countArr2;
+            disLength = countArr2;
+            displayLength();
             displayTopArr.push('2');
             displayTop.innerText = displayTopArr.join('');
         }
@@ -195,11 +235,18 @@ document.addEventListener("DOMContentLoaded", function() {
         if (action === null || countArr1[0] === undefined) {
             countArr1 = countArr1 + 3;
             display.innerText = countArr1;
+            disLength = countArr1;
+            displayLength();
             displayTopArr.push('3');
             displayTop.innerText = displayTopArr.join('');
         } else {
+            if (countArr2[0] === undefined) {
+                displayLengthReset();
+            }
             countArr2 = countArr2 + 3;
             display.innerText = countArr2;
+            disLength = countArr2;
+            displayLength();
             displayTopArr.push('3');
             displayTop.innerText = displayTopArr.join('');
         }
@@ -209,11 +256,18 @@ document.addEventListener("DOMContentLoaded", function() {
         if (action === null || countArr1[0] === undefined) {
             countArr1 = countArr1 + 4;
             display.innerText = countArr1;
+            disLength = countArr1;
+            displayLength();
             displayTopArr.push('4');
             displayTop.innerText = displayTopArr.join('');
         } else {
+            if (countArr2[0] === undefined) {
+                displayLengthReset();
+            }
             countArr2 = countArr2 + 4;
             display.innerText = countArr2;
+            disLength = countArr2;
+            displayLength();
             displayTopArr.push('4');
             displayTop.innerText = displayTopArr.join('');
         }
@@ -223,11 +277,18 @@ document.addEventListener("DOMContentLoaded", function() {
         if (action === null || countArr1[0] === undefined) {
             countArr1 = countArr1 + 5;
             display.innerText = countArr1;
+            disLength = countArr1;
+            displayLength();
             displayTopArr.push('5');
             displayTop.innerText = displayTopArr.join('');
         } else {
+            if (countArr2[0] === undefined) {
+                displayLengthReset();
+            }
             countArr2 = countArr2 + 5;
             display.innerText = countArr2;
+            disLength = countArr2;
+            displayLength();
             displayTopArr.push('5');
             displayTop.innerText = displayTopArr.join('');
         }
@@ -237,11 +298,18 @@ document.addEventListener("DOMContentLoaded", function() {
         if (action === null || countArr1[0] === undefined) {
             countArr1 = countArr1 + 6;
             display.innerText = countArr1;
+            disLength = countArr1;
+            displayLength();
             displayTopArr.push('6');
             displayTop.innerText = displayTopArr.join('');
         } else {
+            if (countArr2[0] === undefined) {
+                displayLengthReset();
+            }
             countArr2 = countArr2 + 6;
             display.innerText = countArr2;
+            disLength = countArr2;
+            displayLength();
             displayTopArr.push('6');
             displayTop.innerText = displayTopArr.join('');
         }
@@ -251,11 +319,18 @@ document.addEventListener("DOMContentLoaded", function() {
         if (action === null || countArr1[0] === undefined) {
             countArr1 = countArr1 + 7;
             display.innerText = countArr1;
+            disLength = countArr1;
+            displayLength();
             displayTopArr.push('7');
             displayTop.innerText = displayTopArr.join('');
         } else {
+            if (countArr2[0] === undefined) {
+                displayLengthReset();
+            }
             countArr2 = countArr2 + 7;
             display.innerText = countArr2;
+            disLength = countArr2;
+            displayLength();
             displayTopArr.push('7');
             displayTop.innerText = displayTopArr.join('');
         }
@@ -265,11 +340,18 @@ document.addEventListener("DOMContentLoaded", function() {
         if (action === null || countArr1[0] === undefined) {
             countArr1 = countArr1 + 8;
             display.innerText = countArr1;
+            disLength = countArr1;
+            displayLength();
             displayTopArr.push('8');
             displayTop.innerText = displayTopArr.join('');
         } else {
+            if (countArr2[0] === undefined) {
+                displayLengthReset();
+            }
             countArr2 = countArr2 + 8;
             display.innerText = countArr2;
+            disLength = countArr2;
+            displayLength();
             displayTopArr.push('8');
             displayTop.innerText = displayTopArr.join('');
         }
@@ -279,11 +361,18 @@ document.addEventListener("DOMContentLoaded", function() {
         if (action === null || countArr1[0] === undefined) {
             countArr1 = countArr1 + 9;
             display.innerText = countArr1;
+            disLength = countArr1;
+            displayLength();
             displayTopArr.push('9');
             displayTop.innerText = displayTopArr.join('');
         } else {
+            if (countArr2[0] === undefined) {
+                displayLengthReset();
+            }
             countArr2 = countArr2 + 9;
             display.innerText = countArr2;
+            disLength = countArr2;
+            displayLength();
             displayTopArr.push('9');
             displayTop.innerText = displayTopArr.join('');
         }
@@ -293,11 +382,18 @@ document.addEventListener("DOMContentLoaded", function() {
         if (action === null || countArr1[0] === undefined) {
             countArr1 = countArr1 + 0;
             display.innerText = countArr1;
+            disLength = countArr1;
+            displayLength();
             displayTopArr.push('0');
             displayTop.innerText = displayTopArr.join('');
         } else {
+            if (countArr2[0] === undefined) {
+                displayLengthReset();
+            }
             countArr2 = countArr2 + 0;
             display.innerText = countArr2;
+            disLength = countArr2;
+            displayLength();
             displayTopArr.push('0');
             displayTop.innerText = displayTopArr.join('');
         }
@@ -307,11 +403,18 @@ document.addEventListener("DOMContentLoaded", function() {
         if (action === null || countArr1[0] === undefined) {
             countArr1 = countArr1 + '.';
             display.innerText = countArr1;
+            disLength = countArr1;
+            displayLength();
             displayTopArr.push('.');
             displayTop.innerText = displayTopArr.join('');
         } else {
+            if (countArr2[0] === undefined) {
+                displayLengthReset();
+            }
             countArr2 = countArr2 + '.';
             display.innerText = countArr2;
+            disLength = countArr2;
+            displayLength();
             displayTopArr.push('.');
             displayTop.innerText = displayTopArr.join('');
         }
@@ -449,6 +552,9 @@ document.addEventListener("DOMContentLoaded", function() {
         countMultiply = 0;
         countDivide = 0;
         displayTopArr = [result];
+        disLength = result.toString();
+        displayLength();
+        console.log(disLength.length);
         displayTop.innerText = displayTopArr;
     });
 
@@ -466,6 +572,7 @@ document.addEventListener("DOMContentLoaded", function() {
         display.innerText = result;
         displayTopArr = [];
         displayTop.innerText = 0;
+        displayLengthReset();
     });
 
     buttonMirror.addEventListener("click", function () {

@@ -52,24 +52,27 @@ body {
     border-radius: 10px;
     margin-bottom: 4px;
     padding-top: 8px;
+    position: relative;
+    overflow: hidden;
 }
 
 .main-display-numbers {
     font-size: 60px;
     font-weight: 600;
-    float: right;
     clear: both;
     color: #6e6e6e;
-    padding-right: 20px;
+    position: absolute;
+    right: 20px;
+    bottom: 7px;
 }
 
 .main-display-numbers-top {
     font-size: 20px;
     font-weight: 600;
-    float: right;
-    clear: both;
     color: #6e6e6e;
-    padding-right: 20px;
+    position: absolute;
+    right: 20px;
+    top: 7px;
 }
 
 /* ****************************************** */
