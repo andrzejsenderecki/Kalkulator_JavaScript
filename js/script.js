@@ -76,13 +76,57 @@ document.addEventListener("DOMContentLoaded", function() {
         numberTwo = parseFloat(countArr2);
     }
 
+    function displayTopActions() {
+        if (displayTopArr[displayTopArr.length - 1] !== '+'
+            && displayTopArr[displayTopArr.length - 1] !== '-'
+            && displayTopArr[displayTopArr.length - 1] !== '*'
+            && displayTopArr[displayTopArr.length - 1] !== '/') {
+            displayTopArr.push(action);
+        }
+        if (action === '+') {
+            if (displayTopArr[displayTopArr.length - 1] !== '-'
+                || displayTopArr[displayTopArr.length - 1] !== '*'
+                || displayTopArr[displayTopArr.length - 1] !== '/') {
+                displayTopArr.splice(displayTopArr.length - 1, 1, action);
+                displayTop.innerText = displayTopArr.join('');
+            }
+        } else if (action === '-') {
+            if (displayTopArr[displayTopArr.length - 1] !== '+'
+                || displayTopArr[displayTopArr.length - 1] !== '*'
+                || displayTopArr[displayTopArr.length - 1] !== '/') {
+                displayTopArr.splice(displayTopArr.length - 1, 1, action);
+                displayTop.innerText = displayTopArr.join('');
+            }
+        } else if (action === '*') {
+            if (displayTopArr[displayTopArr.length - 1] !== '+'
+                || displayTopArr[displayTopArr.length - 1] !== '-'
+                || displayTopArr[displayTopArr.length - 1] !== '/') {
+                displayTopArr.splice(displayTopArr.length - 1, 1, action);
+                displayTop.innerText = displayTopArr.join('');
+            }
+        } else if (action === '/') {
+            if (displayTopArr[displayTopArr.length - 1] !== '+'
+                || displayTopArr[displayTopArr.length - 1] !== '-'
+                || displayTopArr[displayTopArr.length - 1] !== '*') {
+                displayTopArr.splice(displayTopArr.length - 1, 1, action);
+                displayTop.innerText = displayTopArr.join('');
+            }
+        }
+    }
+
     function count() {
 
         switch (action) {
             case '+': {
                 parseToFloat();
-                result = numberOne + numberTwo;
-                countResultDate();
+                if (numberTwo !== undefined) {
+                    result = numberOne + numberTwo;
+                    display.innerText = result;
+                    countResultDate();
+                } else {
+                    result = numberOne;
+                    display.innerText = result;
+                }
                 break;
             }
             case '-': {
@@ -114,9 +158,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     parseFloat(displayNow);
                 }
                 display.innerText = displayNow;
-                if (result === null && countArr2[0] === undefined) {
+                if (countArr1 !== undefined && countArr2[0] === undefined) {
                     countArr1 = displayNow;
-                } else if (countArr1 !== undefined) {
+                } else if (result !== null && countArr1 !== undefined) {
                     countArr2 = displayNow;
                 }
                 break;
@@ -425,8 +469,7 @@ document.addEventListener("DOMContentLoaded", function() {
         countDivide = 0;
         disLength = result.toString();
         displayLength();
-        displayTopArr.push('+');
-        displayTop.innerText = displayTopArr.join('');
+        displayTopActions();
     });
 
     buttonMinus.addEventListener("click", function () {
@@ -463,8 +506,9 @@ document.addEventListener("DOMContentLoaded", function() {
             countDivide = 0;
             disLength = result.toString();
             displayLength();
-            displayTopArr.push('-');
-            displayTop.innerText = displayTopArr.join('');
+            console.log(displayTopArr);
+            console.log(displayTopArr[0]);
+            displayTopActions();
         }
     });
 
@@ -491,8 +535,7 @@ document.addEventListener("DOMContentLoaded", function() {
         countDivide = 0;
         disLength = result.toString();
         displayLength();
-        displayTopArr.push('x');
-        displayTop.innerText = displayTopArr.join('');
+        displayTopActions();
     });
 
     buttonDivide.addEventListener("click", function () {
@@ -519,8 +562,7 @@ document.addEventListener("DOMContentLoaded", function() {
         countMultiply = 0;
         disLength = result.toString();
         displayLength();
-        displayTopArr.push('/');
-        displayTop.innerText = displayTopArr.join('');
+        displayTopActions();
     });
 
     buttonEqual.addEventListener("click", function () {
