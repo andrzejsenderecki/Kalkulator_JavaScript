@@ -108,8 +108,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 parseFloat(displayNow);
                 if (displayNow > 0) {
                     displayNow = '-' + displayNow;
+                    parseFloat(displayNow);
                 } else if (displayNow < 0) {
                     displayNow = displayNow * -1;
+                    parseFloat(displayNow);
                 }
                 display.innerText = displayNow;
                 if (result === null && countArr2[0] === undefined) {
@@ -122,7 +124,9 @@ document.addEventListener("DOMContentLoaded", function() {
             case 'square': {
                 displayNow = display.innerText;
                 parseFloat(displayNow);
+
                 result = displayNow * displayNow;
+
                 countResultDate();
                 break;
             }
@@ -419,6 +423,8 @@ document.addEventListener("DOMContentLoaded", function() {
         countMinus = 0;
         countMultiply = 0;
         countDivide = 0;
+        disLength = result.toString();
+        displayLength();
         displayTopArr.push('+');
         displayTop.innerText = displayTopArr.join('');
     });
@@ -455,6 +461,8 @@ document.addEventListener("DOMContentLoaded", function() {
             countPlus = 0;
             countMultiply = 0;
             countDivide = 0;
+            disLength = result.toString();
+            displayLength();
             displayTopArr.push('-');
             displayTop.innerText = displayTopArr.join('');
         }
@@ -476,10 +484,13 @@ document.addEventListener("DOMContentLoaded", function() {
         } else if (action === '*' && countArr1[0] !== undefined && countArr2[0] !== undefined) {
             count();
         }
+        displayLength();
         action = '*';
         countPlus = 0;
         countMinus = 0;
         countDivide = 0;
+        disLength = result.toString();
+        displayLength();
         displayTopArr.push('x');
         displayTop.innerText = displayTopArr.join('');
     });
@@ -506,6 +517,8 @@ document.addEventListener("DOMContentLoaded", function() {
         countPlus = 0;
         countMinus = 0;
         countMultiply = 0;
+        disLength = result.toString();
+        displayLength();
         displayTopArr.push('/');
         displayTop.innerText = displayTopArr.join('');
     });
@@ -530,9 +543,9 @@ document.addEventListener("DOMContentLoaded", function() {
         countMinus = 0;
         countMultiply = 0;
         countDivide = 0;
-        displayTopArr = [result];
         disLength = result.toString();
         displayLength();
+        displayTopArr = [result];
         displayTop.innerText = displayTopArr;
     });
 
@@ -548,6 +561,8 @@ document.addEventListener("DOMContentLoaded", function() {
         countMultiply = 0;
         countDivide = 0;
         display.innerText = result;
+        disLength = result.toString();
+        displayLength();
         displayTopArr = [];
         displayTop.innerText = 0;
         displayLengthReset();
@@ -561,6 +576,8 @@ document.addEventListener("DOMContentLoaded", function() {
     buttonSquare.addEventListener("click", function () {
         action = 'square';
         count();
+        disLength = result.toString();
+        displayLength();
     });
 
     buttonPercent.addEventListener("click", function () {
@@ -568,7 +585,8 @@ document.addEventListener("DOMContentLoaded", function() {
         displayTopArr.push('%');
         displayTop.innerText = displayTopArr.join('');
         count();
-
+        disLength = result.toString();
+        displayLength();
     });
 
 });
