@@ -37,6 +37,8 @@ document.addEventListener("DOMContentLoaded", function() {
     var displayNow = null;
     var displayTopArr = [];
     var disLength = null;
+    var mirrorArray = [];
+    var toPer = null;
 
     function displayLength() {
         if (disLength.length > 8 && disLength.length < 14) {
@@ -123,6 +125,11 @@ document.addEventListener("DOMContentLoaded", function() {
                     result = numberOne + numberTwo;
                     display.innerText = result;
                     countResultDate();
+                    if (mirrorArray.length === 4) {
+                        mirrorArray.splice(2, 1);
+                        displayTop.innerText = mirrorArray.join('');
+                        displayNow = mirrorArray[2];
+                    }
                 } else {
                     result = numberOne;
                     display.innerText = result;
@@ -133,6 +140,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 parseToFloat();
                 result = numberOne - numberTwo;
                 countResultDate();
+                    if (mirrorArray.length === 4) {
+                        mirrorArray.splice(2, 1);
+                        displayTop.innerText = mirrorArray.join('');
+                        displayNow = mirrorArray[2];
+                }
                 break;
             }
             case '*': {
@@ -148,21 +160,44 @@ document.addEventListener("DOMContentLoaded", function() {
                 break;
             }
             case '+/-': {
+                parseToFloat();
                 displayNow = display.innerText;
-                parseFloat(displayNow);
-                if (displayNow > 0) {
-                    displayNow = '-' + displayNow;
-                    parseFloat(displayNow);
-                } else if (displayNow < 0) {
-                    displayNow = displayNow * -1;
-                    parseFloat(displayNow);
+                mirrorArray[0] = numberOne;
+                mirrorArray[2] = numberTwo;
+                if (countArr1[0] !== undefined && countArr2[0] === undefined) {
+                    if (displayNow > 0) {
+                        displayTopArr.unshift('-');
+                        displayTop.innerText = displayTopArr.join('');
+                        displayNow = '-' + displayNow;
+                        countArr1 = displayNow;
+                        mirrorArray[0] = countArr1;
+                        parseFloat(displayNow);
+                    } else if (displayNow < 0) {
+                        displayTopArr.shift();
+                        displayTop.innerText = displayTopArr.join('');
+                        displayNow = displayTopArr.join('');
+                        countArr1 = displayNow;
+                        mirrorArray[0] = countArr1;
+                        parseFloat(displayNow);
+                    }
+                } else if (countArr1[0] !== undefined && countArr2[0] !== undefined){
+                    if (mirrorArray.length === 3) {
+                        mirrorArray.splice(2, 0, "-");
+                        displayTop.innerText = mirrorArray.join('');
+                        displayNow = '-' + displayNow;
+                        parseFloat(displayNow);
+                        countArr2 = [];
+                        countArr2[0] = parseFloat(displayNow);
+                    } else if (mirrorArray.length === 4) {
+                        mirrorArray.splice(2, 1);
+                        displayTop.innerText = mirrorArray.join('');
+                        displayNow = mirrorArray[2];
+                        parseFloat(displayNow);
+                        countArr2 = [];
+                        countArr2[0] = parseFloat(displayNow);
+                    }
                 }
                 display.innerText = displayNow;
-                if (countArr1 !== undefined && countArr2[0] === undefined) {
-                    countArr1 = displayNow;
-                } else if (result !== null && countArr1 !== undefined) {
-                    countArr2 = displayNow;
-                }
                 break;
             }
             case 'square': {
@@ -202,7 +237,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 } else if (countDivide === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
                     action = '/';
                     parseToFloat();
-                    result = numberOne / numberTwo * numberOne;
+                    numberOnePercent = numberOne / 100;
+                    toPer = numberOnePercent * numberTwo;
+                    result = (numberOne / toPer) * numberOne;
+                    console.log(numberOne);
+                    console.log(numberTwo);
+                    console.log(result);
                     countResultDate();
                     disLength = result.toString();
                     displayLength();
@@ -450,7 +490,7 @@ document.addEventListener("DOMContentLoaded", function() {
     buttonPlus.addEventListener("click", function () {
         countPlus = 1;
         action = '+';
-
+        mirrorArray[1] = '+';
         if (countMinus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
             action = '-';
             count();
@@ -473,6 +513,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     buttonMinus.addEventListener("click", function () {
+        mirrorArray[1] = '-';
+
         if (countArr1[0] === undefined) {
             displayTopArr.push('-');
             displayTop.innerText = displayTopArr.join('');
@@ -513,6 +555,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     buttonMultiply.addEventListener("click", function () {
+
+        mirrorArray[1] = '*';
+
         countMultiply = 1;
         action = '*';
 
@@ -539,6 +584,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     buttonDivide.addEventListener("click", function () {
+
+        mirrorArray[1] = '/';
+
         countDivide = 1;
         action = '/';
 
@@ -606,7 +654,7 @@ document.addEventListener("DOMContentLoaded", function() {
         disLength = result.toString();
         displayLength();
         displayTopArr = [];
-        displayTop.innerText = 0;
+        displayTop.innerText = '0';
         displayLengthReset();
     });
 
@@ -630,5 +678,4 @@ document.addEventListener("DOMContentLoaded", function() {
         disLength = result.toString();
         displayLength();
     });
-
 });
