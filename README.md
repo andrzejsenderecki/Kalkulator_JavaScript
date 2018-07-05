@@ -2,4 +2,4 @@
 
 Beta version:
 
-andrzejsenderecki.github.io/calculator_javascript/
+<a href="https://andrzejsenderecki.github.io/calculator_javascript/">andrzejsenderecki.github.io/calculator_javascript</a>
