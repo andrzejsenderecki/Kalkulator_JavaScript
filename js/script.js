@@ -117,7 +117,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function count() {
-
         switch (action) {
             case '+': {
                 parseToFloat();
@@ -151,12 +150,22 @@ document.addEventListener("DOMContentLoaded", function() {
                 parseToFloat();
                 result = numberOne * numberTwo;
                 countResultDate();
+                if (mirrorArray.length === 4) {
+                    mirrorArray.splice(2, 1);
+                    displayTop.innerText = mirrorArray.join('');
+                    displayNow = mirrorArray[2];
+                }
                 break;
             }
             case '/': {
                 parseToFloat();
                 result = numberOne / numberTwo;
                 countResultDate();
+                if (mirrorArray.length === 4) {
+                    mirrorArray.splice(2, 1);
+                    displayTop.innerText = mirrorArray.join('');
+                    displayNow = mirrorArray[2];
+                }
                 break;
             }
             case '+/-': {
@@ -203,10 +212,14 @@ document.addEventListener("DOMContentLoaded", function() {
             case 'square': {
                 displayNow = display.innerText;
                 parseFloat(displayNow);
-
+                console.log(displayNow);
                 result = displayNow * displayNow;
-
                 countResultDate();
+                if (mirrorArray.length === 4) {
+                    mirrorArray.splice(2, 1);
+                    displayTop.innerText = mirrorArray.join('');
+                    displayNow = mirrorArray[2];
+                }
                 break;
             }
             case 'percent': {
@@ -514,14 +527,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     buttonMinus.addEventListener("click", function () {
         mirrorArray[1] = '-';
-
         if (countArr1[0] === undefined) {
             displayTopArr.push('-');
             displayTop.innerText = displayTopArr.join('');
         }
-
         minus();
-
         function minus() {
             countMinus = 1;
             if (action === null && countArr1[0] === undefined) {
@@ -555,12 +565,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     buttonMultiply.addEventListener("click", function () {
-
         mirrorArray[1] = '*';
-
         countMultiply = 1;
         action = '*';
-
         if (countPlus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
             action = '+';
             count();
@@ -584,12 +591,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     buttonDivide.addEventListener("click", function () {
-
         mirrorArray[1] = '/';
-
         countDivide = 1;
         action = '/';
-
         if (countPlus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
             action = '+';
             count();
@@ -652,9 +656,13 @@ document.addEventListener("DOMContentLoaded", function() {
         countDivide = 0;
         display.innerText = result;
         disLength = result.toString();
-        displayLength();
         displayTopArr = [];
         displayTop.innerText = '0';
+        mirrorArray = [];
+        numberOnePercent = 0;
+        displayNow = null;
+        toPer = null;
+        displayLength();
         displayLengthReset();
     });
 
@@ -664,6 +672,21 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     buttonSquare.addEventListener("click", function () {
+        if (countPlus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+            action = '+';
+            count();
+        } else if (countMinus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+            action = '-';
+            count();
+        } else if (action === '*' && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+            count();
+        } else if (countMultiply === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+            action = '*';
+            count();
+        } else if (countDivide === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+            action = '/';
+            count();
+        }
         action = 'square';
         count();
         disLength = result.toString();
