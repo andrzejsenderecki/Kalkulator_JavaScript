@@ -501,28 +501,30 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     buttonPlus.addEventListener("click", function () {
-        countPlus = 1;
-        action = '+';
-        mirrorArray[1] = '+';
-        if (countMinus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            action = '-';
-            count();
-        } else if (countMultiply === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            action = '*';
-            count();
-        } else if (countDivide === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            action = '/';
-            count();
-        } else if (action === '+' && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            count();
+        if (countArr1[0] !== undefined) {
+            countPlus = 1;
+            action = '+';
+            mirrorArray[1] = '+';
+            if (countMinus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                action = '-';
+                count();
+            } else if (countMultiply === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                action = '*';
+                count();
+            } else if (countDivide === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                action = '/';
+                count();
+            } else if (action === '+' && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                count();
+            }
+            action = '+';
+            countMinus = 0;
+            countMultiply = 0;
+            countDivide = 0;
+            disLength = result.toString();
+            displayLength();
+            displayTopActions();
         }
-        action = '+';
-        countMinus = 0;
-        countMultiply = 0;
-        countDivide = 0;
-        disLength = result.toString();
-        displayLength();
-        displayTopActions();
     });
 
     buttonMinus.addEventListener("click", function () {
@@ -565,82 +567,88 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     buttonMultiply.addEventListener("click", function () {
-        mirrorArray[1] = '*';
-        countMultiply = 1;
-        action = '*';
-        if (countPlus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            action = '+';
-            count();
-        } else if (countMinus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            action = '-';
-            count();
-        } else if (countDivide === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            action = '/';
-            count();
-        } else if (action === '*' && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            count();
+        if (countArr1[0] !== undefined) {
+            mirrorArray[1] = '*';
+            countMultiply = 1;
+            action = '*';
+            if (countPlus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                action = '+';
+                count();
+            } else if (countMinus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                action = '-';
+                count();
+            } else if (countDivide === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                action = '/';
+                count();
+            } else if (action === '*' && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                count();
+            }
+            displayLength();
+            action = '*';
+            countPlus = 0;
+            countMinus = 0;
+            countDivide = 0;
+            disLength = result.toString();
+            displayLength();
+            displayTopActions();
         }
-        displayLength();
-        action = '*';
-        countPlus = 0;
-        countMinus = 0;
-        countDivide = 0;
-        disLength = result.toString();
-        displayLength();
-        displayTopActions();
     });
 
     buttonDivide.addEventListener("click", function () {
-        mirrorArray[1] = '/';
-        countDivide = 1;
-        action = '/';
-        if (countPlus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            action = '+';
-            count();
-        } else if (countMinus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            action = '-';
-            count();
-        } else if (action === '*' && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            count();
-        } else if (countMultiply === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            action = '*';
-            count();
-        } else if (action === '/' && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            count();
+        if (countArr1[0] !== undefined) {
+            mirrorArray[1] = '/';
+            countDivide = 1;
+            action = '/';
+            if (countPlus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                action = '+';
+                count();
+            } else if (countMinus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                action = '-';
+                count();
+            } else if (action === '*' && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                count();
+            } else if (countMultiply === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                action = '*';
+                count();
+            } else if (action === '/' && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                count();
+            }
+            action = '/';
+            countPlus = 0;
+            countMinus = 0;
+            countMultiply = 0;
+            disLength = result.toString();
+            displayLength();
+            displayTopActions();
         }
-        action = '/';
-        countPlus = 0;
-        countMinus = 0;
-        countMultiply = 0;
-        disLength = result.toString();
-        displayLength();
-        displayTopActions();
     });
 
     buttonEqual.addEventListener("click", function () {
-        if (countPlus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            action = '+';
-            count();
-        } else if (countMinus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            action = '-';
-            count();
-        } else if (action === '*' && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            count();
-        } else if (countMultiply === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            action = '*';
-            count();
-        } else if (countDivide === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            action = '/';
-            count();
+        if (countArr1[0] !== undefined && countArr2[0] !== undefined) {
+            if (countPlus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                action = '+';
+                count();
+            } else if (countMinus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                action = '-';
+                count();
+            } else if (action === '*' && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                count();
+            } else if (countMultiply === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                action = '*';
+                count();
+            } else if (countDivide === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                action = '/';
+                count();
+            }
+            countPlus = 0;
+            countMinus = 0;
+            countMultiply = 0;
+            countDivide = 0;
+            disLength = result.toString();
+            displayLength();
+            displayTopArr = [result];
+            displayTop.innerText = displayTopArr;
         }
-        countPlus = 0;
-        countMinus = 0;
-        countMultiply = 0;
-        countDivide = 0;
-        disLength = result.toString();
-        displayLength();
-        displayTopArr = [result];
-        displayTop.innerText = displayTopArr;
     });
 
     buttonReset.addEventListener("click", function () {
@@ -672,33 +680,37 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     buttonSquare.addEventListener("click", function () {
-        if (countPlus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            action = '+';
+        if (countArr1[0] !== undefined) {
+            if (countPlus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                action = '+';
+                count();
+            } else if (countMinus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                action = '-';
+                count();
+            } else if (action === '*' && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                count();
+            } else if (countMultiply === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                action = '*';
+                count();
+            } else if (countDivide === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
+                action = '/';
+                count();
+            }
+            action = 'square';
             count();
-        } else if (countMinus === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            action = '-';
-            count();
-        } else if (action === '*' && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            count();
-        } else if (countMultiply === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            action = '*';
-            count();
-        } else if (countDivide === 1 && countArr1[0] !== undefined && countArr2[0] !== undefined) {
-            action = '/';
-            count();
+            disLength = result.toString();
+            displayLength();
         }
-        action = 'square';
-        count();
-        disLength = result.toString();
-        displayLength();
     });
 
     buttonPercent.addEventListener("click", function () {
-        action = 'percent';
-        displayTopArr.push('%');
-        displayTop.innerText = displayTopArr.join('');
-        count();
-        disLength = result.toString();
-        displayLength();
+        if (countArr1[0] !== undefined) {
+            action = 'percent';
+            displayTopArr.push('%');
+            displayTop.innerText = displayTopArr.join('');
+            count();
+            disLength = result.toString();
+            displayLength();
+        }
     });
 });
