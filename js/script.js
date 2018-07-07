@@ -1,17 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    var display = document.getElementById("display");
-    var displayTop = document.getElementById("displayTop");
-    var button1 = document.getElementById("1");
-    var button2 = document.getElementById("2");
-    var button3 = document.getElementById("3");
-    var button4 = document.getElementById("4");
-    var button5 = document.getElementById("5");
-    var button6 = document.getElementById("6");
-    var button7 = document.getElementById("7");
-    var button8 = document.getElementById("8");
-    var button9 = document.getElementById("9");
-    var button0 = document.getElementById("0");
+    var numbersBtn = document.querySelectorAll(".main-button-numbers");
     var buttonPlus = document.getElementById("plus");
     var buttonMinus = document.getElementById("minus");
     var buttonMultiply = document.getElementById("multiply");
@@ -22,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function() {
     var buttonSquare = document.getElementById("square");
     var buttonMirror = document.getElementById("mirror");
     var buttonComma = document.getElementById("comma");
+    var display = document.getElementById("display");
+    var displayTop = document.getElementById("displayTop");
 
     var countArr1 = [];
     var countArr2 = [];
@@ -38,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var displayTopArr = [];
     var disLength = null;
     var mirrorArray = [];
-    var toPer = null;
+    var toPercent = null;
 
     function displayLength() {
         if (disLength.length > 8 && disLength.length < 14) {
@@ -251,8 +242,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     action = '/';
                     parseToFloat();
                     numberOnePercent = numberOne / 100;
-                    toPer = numberOnePercent * numberTwo;
-                    result = (numberOne / toPer) * numberOne;
+                    toPercent = numberOnePercent * numberTwo;
+                    result = (numberOne / toPercent) * numberOne;
                     console.log(numberOne);
                     console.log(numberTwo);
                     console.log(result);
@@ -269,215 +260,28 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    button1.addEventListener("click", function () {
-        if (action === null || countArr1[0] === undefined) {
-            countArr1 = countArr1 + 1;
-            display.innerText = countArr1;
-            disLength = countArr1;
-            displayLength();
-            displayTopArr.push('1');
-            displayTop.innerText = displayTopArr.join('');
-        } else {
-            if (countArr2[0] === undefined) {
-                displayLengthReset();
+    for (var i=0; i<numbersBtn.length; i++) {
+        numbersBtn[i].addEventListener("click", function () {
+            if (action === null || countArr1[0] === undefined) {
+                countArr1 = countArr1 + this.dataset.number;
+                display.innerText = countArr1;
+                disLength = countArr1;
+                displayLength();
+                displayTopArr.push(this.dataset.number);
+                displayTop.innerText = displayTopArr.join('');
+            } else {
+                if (countArr2[0] === undefined) {
+                    displayLengthReset();
+                }
+                countArr2 = countArr2 + this.dataset.number;
+                display.innerText = countArr2;
+                disLength = countArr2;
+                displayLength();
+                displayTopArr.push(this.dataset.number);
+                displayTop.innerText = displayTopArr.join('');
             }
-            countArr2 = countArr2 + 1;
-            display.innerText = countArr2;
-            disLength = countArr2;
-            displayLength();
-            displayTopArr.push('1');
-            displayTop.innerText = displayTopArr.join('');
-        }
-    });
-
-    button2.addEventListener("click", function () {
-        if (action === null || countArr1[0] === undefined) {
-            countArr1 = countArr1 + 2;
-            display.innerText = countArr1;
-            disLength = countArr1;
-            displayLength();
-            displayTopArr.push('2');
-            displayTop.innerText = displayTopArr.join('');
-        } else {
-            if (countArr2[0] === undefined) {
-                displayLengthReset();
-            }
-            countArr2 = countArr2 + 2;
-            display.innerText = countArr2;
-            disLength = countArr2;
-            displayLength();
-            displayTopArr.push('2');
-            displayTop.innerText = displayTopArr.join('');
-        }
-    });
-
-    button3.addEventListener("click", function () {
-        if (action === null || countArr1[0] === undefined) {
-            countArr1 = countArr1 + 3;
-            display.innerText = countArr1;
-            disLength = countArr1;
-            displayLength();
-            displayTopArr.push('3');
-            displayTop.innerText = displayTopArr.join('');
-        } else {
-            if (countArr2[0] === undefined) {
-                displayLengthReset();
-            }
-            countArr2 = countArr2 + 3;
-            display.innerText = countArr2;
-            disLength = countArr2;
-            displayLength();
-            displayTopArr.push('3');
-            displayTop.innerText = displayTopArr.join('');
-        }
-    });
-
-    button4.addEventListener("click", function () {
-        if (action === null || countArr1[0] === undefined) {
-            countArr1 = countArr1 + 4;
-            display.innerText = countArr1;
-            disLength = countArr1;
-            displayLength();
-            displayTopArr.push('4');
-            displayTop.innerText = displayTopArr.join('');
-        } else {
-            if (countArr2[0] === undefined) {
-                displayLengthReset();
-            }
-            countArr2 = countArr2 + 4;
-            display.innerText = countArr2;
-            disLength = countArr2;
-            displayLength();
-            displayTopArr.push('4');
-            displayTop.innerText = displayTopArr.join('');
-        }
-    });
-
-    button5.addEventListener("click", function () {
-        if (action === null || countArr1[0] === undefined) {
-            countArr1 = countArr1 + 5;
-            display.innerText = countArr1;
-            disLength = countArr1;
-            displayLength();
-            displayTopArr.push('5');
-            displayTop.innerText = displayTopArr.join('');
-        } else {
-            if (countArr2[0] === undefined) {
-                displayLengthReset();
-            }
-            countArr2 = countArr2 + 5;
-            display.innerText = countArr2;
-            disLength = countArr2;
-            displayLength();
-            displayTopArr.push('5');
-            displayTop.innerText = displayTopArr.join('');
-        }
-    });
-
-    button6.addEventListener("click", function () {
-        if (action === null || countArr1[0] === undefined) {
-            countArr1 = countArr1 + 6;
-            display.innerText = countArr1;
-            disLength = countArr1;
-            displayLength();
-            displayTopArr.push('6');
-            displayTop.innerText = displayTopArr.join('');
-        } else {
-            if (countArr2[0] === undefined) {
-                displayLengthReset();
-            }
-            countArr2 = countArr2 + 6;
-            display.innerText = countArr2;
-            disLength = countArr2;
-            displayLength();
-            displayTopArr.push('6');
-            displayTop.innerText = displayTopArr.join('');
-        }
-    });
-
-    button7.addEventListener("click", function () {
-        if (action === null || countArr1[0] === undefined) {
-            countArr1 = countArr1 + 7;
-            display.innerText = countArr1;
-            disLength = countArr1;
-            displayLength();
-            displayTopArr.push('7');
-            displayTop.innerText = displayTopArr.join('');
-        } else {
-            if (countArr2[0] === undefined) {
-                displayLengthReset();
-            }
-            countArr2 = countArr2 + 7;
-            display.innerText = countArr2;
-            disLength = countArr2;
-            displayLength();
-            displayTopArr.push('7');
-            displayTop.innerText = displayTopArr.join('');
-        }
-    });
-
-    button8.addEventListener("click", function () {
-        if (action === null || countArr1[0] === undefined) {
-            countArr1 = countArr1 + 8;
-            display.innerText = countArr1;
-            disLength = countArr1;
-            displayLength();
-            displayTopArr.push('8');
-            displayTop.innerText = displayTopArr.join('');
-        } else {
-            if (countArr2[0] === undefined) {
-                displayLengthReset();
-            }
-            countArr2 = countArr2 + 8;
-            display.innerText = countArr2;
-            disLength = countArr2;
-            displayLength();
-            displayTopArr.push('8');
-            displayTop.innerText = displayTopArr.join('');
-        }
-    });
-
-    button9.addEventListener("click", function () {
-        if (action === null || countArr1[0] === undefined) {
-            countArr1 = countArr1 + 9;
-            display.innerText = countArr1;
-            disLength = countArr1;
-            displayLength();
-            displayTopArr.push('9');
-            displayTop.innerText = displayTopArr.join('');
-        } else {
-            if (countArr2[0] === undefined) {
-                displayLengthReset();
-            }
-            countArr2 = countArr2 + 9;
-            display.innerText = countArr2;
-            disLength = countArr2;
-            displayLength();
-            displayTopArr.push('9');
-            displayTop.innerText = displayTopArr.join('');
-        }
-    });
-
-    button0.addEventListener("click", function () {
-        if (action === null || countArr1[0] === undefined) {
-            countArr1 = countArr1 + 0;
-            display.innerText = countArr1;
-            disLength = countArr1;
-            displayLength();
-            displayTopArr.push('0');
-            displayTop.innerText = displayTopArr.join('');
-        } else {
-            if (countArr2[0] === undefined) {
-                displayLengthReset();
-            }
-            countArr2 = countArr2 + 0;
-            display.innerText = countArr2;
-            disLength = countArr2;
-            displayLength();
-            displayTopArr.push('0');
-            displayTop.innerText = displayTopArr.join('');
-        }
-    });
+        });
+    }
 
     buttonComma.addEventListener("click", function () {
         if (action === null || countArr1[0] === undefined) {
@@ -669,7 +473,7 @@ document.addEventListener("DOMContentLoaded", function() {
         mirrorArray = [];
         numberOnePercent = 0;
         displayNow = null;
-        toPer = null;
+        toPercent = null;
         displayLength();
         displayLengthReset();
     });
