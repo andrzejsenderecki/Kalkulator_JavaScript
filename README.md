@@ -7,6 +7,7 @@ Link do projektu:
 Kalkulator z przyjaznym interfejsem graficznym.
 
 <h4>Technologie wykorzystane w projekcie:</h4>
+
 - HTML
 
 - CSS
