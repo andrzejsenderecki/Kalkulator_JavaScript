@@ -1,8 +1,9 @@
 # Kalkulator_JavaScript
+Link do projektu:
 
 <a href="https://andrzejsenderecki.github.io/Kalkulator_JavaScript/">https://andrzejsenderecki.github.io/Kalkulator_JavaScript/</a>
 
-<h2>Kalkulator JavaScript</h2>
+<h1>Kalkulator JavaScript</h1>
 Kalkulator z przyjaznym interfejsem graficznym.
 
 <h4>Technologie wykorzystane w projekcie:</h4>
