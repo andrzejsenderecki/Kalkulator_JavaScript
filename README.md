@@ -7,7 +7,7 @@ Kalkulator z przyjaznym interface'm graficznym.
 
 <h4>Technologie wykorzystane w projekcie:</h4>
 - HTML
-- SCC
+- CSS
 - JavaScript
 
 <h4>Funkcjonalności:</h4>
@@ -28,9 +28,11 @@ Kalkulator z przyjaznym interface'm graficznym.
 
 - odwracanie liczb +/-
 
-- dwa wyświetlacze. Pierwszy z nich przedstawia aktualny wynik lub wybraną liczbę, drugi natomiast działanie jakie będzie wykonane jako następne. Jeśli wynik jest zbyt długi, aby zmieścić się na wyświetlaczu, to wówczas kalkulator automatycznie zmniejszy font.
+- wyświetlacz przedstawiający aktualny wynik lub wybraną liczbę. Jeśli wynik jest zbyt długi, aby zmieścić się na wyświetlaczu, to wówczas kalkulator automatycznie zmniejszy font
 
-Aplikacja jest odporna na nietypowe działania użytkownika takie jak:
+- wyświetlacz przedstawiający jakie działanie będzie wykonane jako kolejne
+
+<h4>Aplikacja jest odporna na nietypowe działania użytkownika takie jak:</h4>
 
 - wielokrotnie klikanie przycisku innego niż cyfra
 
