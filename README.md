@@ -36,7 +36,7 @@ Kalkulator z przyjaznym interfejsem graficznym.
 
 - wyświetlacz przedstawiający jakie działanie będzie wykonane jako kolejne
 
-<h2>Aplikacja jest odporna na nietypowe działania użytkownika takie jak:</h2>
+<h4>Aplikacja jest odporna na nietypowe działania użytkownika takie jak:</h4>
 
 - wielokrotnie klikanie przycisku innego niż cyfra
 
