@@ -38,4 +38,4 @@ Kalkulator z przyjaznym interface'm graficznym.
 
 - jeśli użytkownik kliknie kolejno np. "4 + 4" i następnie np. "-" to po kliknięciu "-" zostanie wykonane poprzednio wybrane działanie, a więc "+", a kolejnym jakie zostanie wykonane będzie "-"
 
-- jeśli użytkownik kliknie kolejno np. "4", a następnie sekwencję "+, -, /, *" i następnie np. "2", to wykonane zostanie ostatnio kliknięte działanie, a więc w tym przypadku "*"
+- jeśli użytkownik kliknie kolejno np. "4", a następnie sekwencję "-, /, *, +" i następnie np. "2", to wykonane zostanie ostatnio kliknięte działanie, a więc w tym przypadku "+"
