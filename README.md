@@ -1,17 +1,17 @@
-# Kalkulator_JavaScript
+<h1>Kalkulator JavaScript</h1>
+
 Link do projektu:
 
 <a href="https://andrzejsenderecki.github.io/Kalkulator_JavaScript/">https://andrzejsenderecki.github.io/Kalkulator_JavaScript/</a>
 
-<h1>Kalkulator JavaScript</h1>
 Kalkulator z przyjaznym interfejsem graficznym.
 
-<h4>Technologie wykorzystane w projekcie:</h4>
+<h2>Technologie wykorzystane w projekcie:</h2>
 - HTML
 - CSS
 - JavaScript
 
-<h4>Funkcjonalności:</h4>
+<h2>Funkcjonalności:</h2>
 
 - dodawanie
 
@@ -33,7 +33,7 @@ Kalkulator z przyjaznym interfejsem graficznym.
 
 - wyświetlacz przedstawiający jakie działanie będzie wykonane jako kolejne
 
-<h4>Aplikacja jest odporna na nietypowe działania użytkownika takie jak:</h4>
+<h2>Aplikacja jest odporna na nietypowe działania użytkownika takie jak:</h2>
 
 - wielokrotnie klikanie przycisku innego niż cyfra
 
