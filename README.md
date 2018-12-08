@@ -1,6 +1,6 @@
 # calculator_javascript
 
-<a href="https://andrzejsenderecki.github.io/calculator_javascript/">andrzejsenderecki.github.io/calculator_javascript</a>
+<a href="https://andrzejsenderecki.github.io/Kalkulator_JavaScript/">andrzejsenderecki.github.io/calculator_javascript</a>
 
 <h2>Kalkulator JavaScript</h2>
 Kalkulator z przyjaznym interfejsem graficznym.
