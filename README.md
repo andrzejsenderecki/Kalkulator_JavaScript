@@ -3,8 +3,14 @@
 <a href="https://andrzejsenderecki.github.io/calculator_javascript/">andrzejsenderecki.github.io/calculator_javascript</a>
 
 <h2>Kalkulator JavaScript</h2>
+Kalkulator z przyjaznym interface'm graficznym.
 
-Kalkulator osiada przyjazny interface graficzny i obsługuje takie funkcjonalności jak:
+<h4>Technologie wykorzystane w projekcie:</h4>
+- HTML
+- SCC
+- JavaScript
+
+<h4>Funkcjonalności:</h4>
 
 - dodawanie
 
