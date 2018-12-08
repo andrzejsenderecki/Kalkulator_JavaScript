@@ -1,4 +1,4 @@
-# Kalculator_JavaScript
+# Kalkulator_JavaScript
 
 <a href="https://andrzejsenderecki.github.io/Kalkulator_JavaScript/">https://andrzejsenderecki.github.io/Kalkulator_JavaScript/</a>
 
