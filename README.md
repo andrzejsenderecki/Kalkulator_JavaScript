@@ -6,12 +6,14 @@ Link do projektu:
 
 Kalkulator z przyjaznym interfejsem graficznym.
 
-<h2>Technologie wykorzystane w projekcie:</h2>
+<h4>Technologie wykorzystane w projekcie:</h4>
 - HTML
+
 - CSS
+
 - JavaScript
 
-<h2>Funkcjonalności:</h2>
+<h4>Funkcjonalności:</h4>
 
 - dodawanie
 
