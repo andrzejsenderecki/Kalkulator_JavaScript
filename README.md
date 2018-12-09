@@ -32,13 +32,13 @@ Kalkulator z przyjaznym interfejsem graficznym.
 
 - odwracanie liczb +/-
 
-- wyświetlacz przedstawiający aktualny wynik lub wybraną liczbę. Jeśli wynik jest zbyt długi, aby zmieścić się na wyświetlaczu, to wówczas kalkulator automatycznie zmniejszy font
+- wyświetlacz przedstawiający aktualny wynik lub wybraną liczbę. Jeśli wynik jest zbyt długi, aby zmieścił się na wyświetlaczu, to wówczas kalkulator automatycznie zmniejszy font
 
 - wyświetlacz przedstawiający jakie działanie będzie wykonane jako kolejne
 
 <h4>Aplikacja jest odporna na nietypowe działania użytkownika takie jak:</h4>
 
-- wielokrotnie klikanie przycisku innego niż cyfra
+- wielokrotne klikanie przycisku innego niż cyfra
 
 - jeśli użytkownik kliknie kolejno np. "4 + 4" i następnie np. "-" to po kliknięciu "-" zostanie wykonane poprzednio wybrane działanie, a więc "+", a kolejnym jakie zostanie wykonane będzie "-"
 
